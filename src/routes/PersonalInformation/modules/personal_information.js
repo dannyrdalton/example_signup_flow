@@ -10,7 +10,6 @@ export const PERSONAL_INFORMATION_SAVE = 'PERSONAL_INFORMATION_SAVE'
 // Persisted Data
 // ------------------------------------
 let persistedState = {
-  dirty: false,
   data: {
     email: '',
     password: '',
@@ -71,25 +70,6 @@ const ACTION_HANDLERS = {
       dirty: false
     });
   }
-}
-
-// ------------------------------------
-// Validators
-// ------------------------------------
-
-const validateEmail = (value) => {
-  return value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value);
-}
-
-const validate = (name, value) => {
-  let valid = false;
-  switch(name) {
-    case 'email':
-      valid = validateEmail(value);
-      break;
-  }
-
-  return valid;
 }
 
 // ------------------------------------

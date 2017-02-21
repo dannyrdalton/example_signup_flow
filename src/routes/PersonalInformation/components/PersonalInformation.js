@@ -1,43 +1,75 @@
 import React from 'react'
+import { Field } from 'redux-form'
+import { normalizePhone } from 'modules/Form/Field/field_normalizers'
+
+const renderField = (field) => (
+  <div className={'form-group ' + (field.meta.error && field.meta.touched ? 'has-error ' : '') + (!field.meta.error && field.meta.touched ? 'has-success': '')}>
+    <label>{field.label}</label>
+    <div>
+      <input {...field.input}
+        placeholder={field.label}
+        type={field.type} 
+        className='form-control' /
+      >
+    </div>
+  </div>
+)
+
+const required = (value) => {
+  return value ? undefined : true
+}
+
+const email = (value) => {
+  return value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? true : undefined
+}
+
+const alphaNumeric = (value) => {
+  return /^[a-z0-9]+$/i.test(value) ? undefined : true
+}
 
 export const PersonalInformation = (props) => (
   <div>
     <h2>Personal Information</h2>
-    <div className={"form-group"}>
-      <label htmlFor="email">Email address</label>
-      <input
-        type="email"
-        className="form-control"
-        id="email"
-        name="email"
-        placeholder="Email"
-        value={props.pinfo.data.email}
-        onChange={props.handleInputChange} />
-    </div>
-    <div className="form-group">
-      <label htmlFor="password">Password</label>
-      <input type="password" className="form-control" id="password" placeholder="Password" value={props.pinfo.data.password} onChange={props.handleInputChange} />
-    </div>
-    <div className="form-group">
-      <label htmlFor="first-name">First Name</label>
-      <input type="text" className="form-control" id="first-name" placeholder="First Name" />
-    </div>
-    <div className="form-group">
-      <label htmlFor="last-name">Last Name</label>
-      <input type="text" className="form-control" id="last-name" placeholder="Last Name" />
-    </div>
-    <div className="form-group">
-      <label htmlFor="dob">Date of Birth</label>
-      <input type="date" className="form-control" id="dob" placeholder="Date of Birth" />
-    </div>
-    <div className="form-group">
-      <label htmlFor="phone">Phone #</label>
-      <input type="text" className="form-control" id="first-name" placeholder="Phone #" />
-    </div>
+    <form>
+      <Field
+        name='email'
+        type='email'
+        component={renderField}
+        validate={[required, email]}
+        label='Email' /
+      >
+      <Field
+        name='firstName'
+        id="coolio"
+        component={renderField}
+        validate={[required, alphaNumeric]}
+        label='First Name' /
+      >
+      <Field
+        name='lastName'
+        type='text'
+        component={renderField}
+        validate={[required, alphaNumeric]}
+        label='Last Name' /
+      >
+      <Field
+        name='dob'
+        type='date'
+        component={renderField}
+        validate={required}
+        label='Date of Birth' /
+      >
+      <Field
+        name='phone'
+        type='text'
+        component={renderField}
+        validate={required}
+        label='Phone #'
+        normalize={normalizePhone} /
+      >
+    </form>
     <div>
-      <button className='btn btn-default' onClick={props.save}>
-        Save
-      </button>
+      <div class="btn btn-default">Next</div> 
     </div>
   </div>
 )

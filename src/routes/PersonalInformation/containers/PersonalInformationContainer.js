@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { reduxForm } from 'redux-form'
 import { handleInputChange, save } from '../modules/personal_information'
 
 /*  This is a container component. Notice it does not contain any JSX,
@@ -18,8 +19,13 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state) => ({
-  pinfo : state.pinfo
+  pinfo: state.pinfo,
+  initialValues: state.pinfo.data
 })
+
+const reduxFormConfig = {
+  form: 'personalInfoForm'
+}
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
 
@@ -35,4 +41,4 @@ const mapStateToProps = (state) => ({
     Selectors are composable. They can be used as input to other selectors.
     https://github.com/reactjs/reselect    */
 
-export default connect(mapStateToProps, mapDispatchToProps)(PersonalInformation)
+export default connect(mapStateToProps, mapDispatchToProps)(reduxForm(reduxFormConfig)(PersonalInformation))
