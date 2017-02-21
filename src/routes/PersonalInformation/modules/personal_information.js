@@ -1,11 +1,11 @@
 import { LOCATION_CHANGE } from 'store/location'
+import { push } from 'react-router-redux'
+import { PATH as IMAGE_SELECT_PATH } from '../../ImageSelect'
 
 // ------------------------------------
 // Constants
 // ------------------------------------
 export const FORM_NAME = 'PERSONAL_INFO_FORM'
-export const PERSONAL_INFORMATION_INPUT_CHANGE = 'PERSONAL_INFORMATION_INPUT_CHANGE'
-export const PERSONAL_INFORMATION_SAVE = 'PERSONAL_INFORMATION_SAVE'
 export const PERSONAL_INFORMATION_NEXT = 'PERSONAL_INFORMATION_NEXT'
 
 // ------------------------------------
@@ -33,6 +33,7 @@ export function next() {
         data: getState().form[FORM_NAME].values
       }
     })
+    dispatch(push(IMAGE_SELECT_PATH))
   }
 }
 

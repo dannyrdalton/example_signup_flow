@@ -1,5 +1,6 @@
 import React from 'react'
 import { Field } from 'redux-form'
+import { Link } from 'react-router'
 import { normalizePhone } from 'modules/Form/Field/field_normalizers'
 
 const renderField = (field) => (

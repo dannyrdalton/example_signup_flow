@@ -16,6 +16,10 @@ export const Header = () => (
     <Link to='/pinfo' activeClassName='route--active'>
       Personal Information
     </Link>
+    {' · '}
+    <Link to='/select-an-image' activeClassName='route--active'>
+      Select an image
+    </Link>
   </div>
 )
 
