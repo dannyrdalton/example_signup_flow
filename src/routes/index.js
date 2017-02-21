@@ -7,6 +7,8 @@ import ImageSelectRoute from './ImageSelect'
 import DentalHistoryRoute from './DentalHistory'
 import DentalGoalsRoute from './DentalGoals'
 import SelectDoctorRoute from './SelectDoctor'
+import SelectInsuranceRoute from './SelectInsurance'
+import ReviewAndSubmitRoute from './ReviewAndSubmit'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
@@ -21,7 +23,9 @@ export const createRoutes = (store) => ({
     ImageSelectRoute(store),
     DentalHistoryRoute(store),
     DentalGoalsRoute(store),
-    SelectDoctorRoute(store)
+    SelectDoctorRoute(store),
+    SelectInsuranceRoute(store),
+    ReviewAndSubmitRoute(store)
   ]
 })
 
