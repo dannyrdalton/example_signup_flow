@@ -3,8 +3,10 @@ import { LOCATION_CHANGE } from 'store/location'
 // ------------------------------------
 // Constants
 // ------------------------------------
+export const FORM_NAME = 'PERSONAL_INFO_FORM'
 export const PERSONAL_INFORMATION_INPUT_CHANGE = 'PERSONAL_INFORMATION_INPUT_CHANGE'
 export const PERSONAL_INFORMATION_SAVE = 'PERSONAL_INFORMATION_SAVE'
+export const PERSONAL_INFORMATION_NEXT = 'PERSONAL_INFORMATION_NEXT'
 
 // ------------------------------------
 // Persisted Data
@@ -23,52 +25,29 @@ let persistedState = {
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function handleInputChange(event) {
-  return {
-    type: PERSONAL_INFORMATION_INPUT_CHANGE,
-    payload: {
-      name: event.target.name,
-      value: event.target.value
-    }
-  }
-}
-
-export function save() {
+export function next() {
   return (dispatch, getState) => {
     dispatch({
-      type: PERSONAL_INFORMATION_SAVE,
-      payload: getState().pinfo
+      type: PERSONAL_INFORMATION_NEXT,
+      payload: {
+        data: getState().form[FORM_NAME].values
+      }
     })
   }
 }
 
 export const actions = {
-  save
+  next
 }
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [LOCATION_CHANGE]: (state, action) => {
-    if (state.dirty) {
-      return Object.assign({}, persistedState);
-    }
-    return state;
-  },
-  [PERSONAL_INFORMATION_INPUT_CHANGE]: (state, action) => {
+  [PERSONAL_INFORMATION_NEXT]: (state, action) => {
     return Object.assign({}, state, {
-      dirty: true,
-      data: {
-        [action.payload.name]: action.payload.value
-      }
+      data: action.payload.data
     })
-  },
-  [PERSONAL_INFORMATION_SAVE]: (state, action) => {
-    persistedState = state;
-    return Object.assign({}, persistedState, {
-      dirty: false
-    });
   }
 }
 
@@ -76,7 +55,6 @@ const ACTION_HANDLERS = {
 // Reducer
 // ------------------------------------
 const initialState = persistedState;
-
 
 export default function personalInformationReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]

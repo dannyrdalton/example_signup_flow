@@ -69,15 +69,14 @@ export const PersonalInformation = (props) => (
       >
     </form>
     <div>
-      <div class="btn btn-default">Next</div> 
+      <div className="btn btn-default" onClick={props.next} disabled={!props.valid}>Next</div> 
     </div>
   </div>
 )
 
-PersonalInformation.propTypes = {
-  pinfo: React.PropTypes.object.isRequired,
-  handleInputChange: React.PropTypes.func.isRequired,
-  save: React.PropTypes.func.isRequired
-}
+// PersonalInformation.propTypes = {
+//   pinfo: React.PropTypes.object.isRequired,
+//   save: React.PropTypes.func.isRequired
+// }
 
 export default PersonalInformation
