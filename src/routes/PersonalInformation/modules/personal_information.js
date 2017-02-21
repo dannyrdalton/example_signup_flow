@@ -1,4 +1,3 @@
-import { LOCATION_CHANGE } from 'store/location'
 import { push } from 'react-router-redux'
 import { PATH as IMAGE_SELECT_PATH } from '../../ImageSelect'
 

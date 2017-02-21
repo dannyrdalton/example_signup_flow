@@ -1,4 +1,6 @@
 import { connect } from 'react-redux'
+import { reduxForm } from 'redux-form'
+import { FORM_NAME, back, next } from '../modules/dental_history'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -12,12 +14,18 @@ import DentalHistory from '../components/DentalHistory'
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps = {
-  
+  back,
+  next 
 }
 
 const mapStateToProps = (state) => ({
-  
+  dentalHistory: state.dentalHistory,
+  initialValues: state.dentalHistory.data
 })
+
+const reduxFormConfig = {
+  form: FORM_NAME
+}
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
 
@@ -33,4 +41,4 @@ const mapStateToProps = (state) => ({
     Selectors are composable. They can be used as input to other selectors.
     https://github.com/reactjs/reselect    */
 
-export default connect(mapStateToProps, mapDispatchToProps)(DentalHistory)
+export default connect(mapStateToProps, mapDispatchToProps)(reduxForm(reduxFormConfig)(DentalHistory))
