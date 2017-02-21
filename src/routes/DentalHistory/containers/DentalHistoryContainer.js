@@ -15,7 +15,7 @@ import DentalHistory from '../components/DentalHistory'
 
 const mapDispatchToProps = {
   back,
-  next 
+  next
 }
 
 const mapStateToProps = (state) => ({
