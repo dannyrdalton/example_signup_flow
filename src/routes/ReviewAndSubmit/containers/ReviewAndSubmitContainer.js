@@ -16,7 +16,13 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state) => ({
-  
+  reviewAndSubmit: {
+    data: {
+      pinfo: state.pinfo,
+      dentalHistory: state.dentalHistory,
+      dentalGoals: state.dentalGoals
+    }
+  } 
 })
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:

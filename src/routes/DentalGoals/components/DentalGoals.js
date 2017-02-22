@@ -1,6 +1,9 @@
 import React from 'react'
 import { Field } from 'redux-form'
 import { Link } from 'react-router'
+import MinorCrowdingImage from '../assets/minor_crowding.jpg'
+import ModerateCrowdingImage from '../assets/moderate_crowding.jpg'
+import MajorCrowdingImage from '../assets/major_crowding.png'
 
 export const DentalGoals = (props) => (
   <div>
@@ -9,9 +12,29 @@ export const DentalGoals = (props) => (
       <div>
         <label>Sex</label>
         <div>
-          <label><Field name="goal" component='input' type="radio" value="fixMinorCrowding"/>Fix Minor Crowding</label>
-          <label><Field name="goal" component='input' type="radio" value="fixModerateCrowding"/>Fix Moderate Crowding</label>
-          <label><Field name="goal" component='input' type="radio" value="fixMajorCrowding"/>Fix Major Crowding</label>
+          <label>
+            <Field name="goal" component='input' type="radio" value="fixMinorCrowding"/>
+            Fix Minor Crowding<br/>
+            <img
+              alt='This is a duck, because Redux!'
+              className=''
+              src={MinorCrowdingImage} />
+          </label>
+          <label>
+            <Field name="goal" component='input' type="radio" value="fixModerateCrowding"/>
+            Fix Moderate Crowding<br/>
+            <img
+              alt='This is a duck, because Redux!'
+              className=''
+              src={ModerateCrowdingImage} />
+          </label>
+          <label><Field name="goal" component='input' type="radio" value="fixMajorCrowding"/>
+            Fix Major Crowding<br/>
+            <img
+              alt='This is a duck, because Redux!'
+              className=''
+              src={MajorCrowdingImage} />
+          </label>
         </div>
       </div>
     </form>
