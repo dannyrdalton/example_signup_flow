@@ -1,4 +1,6 @@
 import { connect } from 'react-redux'
+import { reduxForm } from 'redux-form'
+import { FORM_NAME, handleImageDrop } from '../modules/image_select'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -12,12 +14,16 @@ import ImageSelect from '../components/ImageSelect'
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps = {
-  
+  handleImageDrop 
 }
 
 const mapStateToProps = (state) => ({
-  
+  imageSelect: state.imageSelect 
 })
+
+const reduxFormConfig = {
+  form: FORM_NAME
+}
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
 
@@ -33,4 +39,4 @@ const mapStateToProps = (state) => ({
     Selectors are composable. They can be used as input to other selectors.
     https://github.com/reactjs/reselect    */
 
-export default connect(mapStateToProps, mapDispatchToProps)(ImageSelect)
+export default connect(mapStateToProps, mapDispatchToProps)(reduxForm(reduxFormConfig)(ImageSelect))

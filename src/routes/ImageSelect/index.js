@@ -15,13 +15,13 @@ export default (store) => ({
       const reducer = require('./modules/image_select').default
 
       /*  Add the reducer to the store on key 'pinfo'  */
-      injectReducer(store, { key: 'selectAnImage', reducer })
+      injectReducer(store, { key: 'imageSelect', reducer })
 
       /*  Return getComponent   */
       cb(null, SelectAnImage)
 
     /* Webpack named bundle   */
-    }, 'selectAnImage')
+    }, 'imageSelect')
   },
   onEnter: () => {
     // load from mock backend here
