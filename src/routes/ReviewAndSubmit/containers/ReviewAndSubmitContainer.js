@@ -19,6 +19,7 @@ const mapStateToProps = (state) => ({
   reviewAndSubmit: {
     data: {
       pinfo: state.pinfo,
+      imageSelect: state.imageSelect,
       dentalHistory: state.dentalHistory,
       dentalGoals: state.dentalGoals
     }

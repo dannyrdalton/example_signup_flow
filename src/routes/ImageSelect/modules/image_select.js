@@ -11,7 +11,9 @@ export const HANDLE_IMAGE_DROP = 'HANDLE_IMAGE_DROP'
 export function handleImageDrop(filesToUpload, e) {
   return {
     type: HANDLE_IMAGE_DROP,
-    payload: filesToUpload
+    payload: {
+      file: filesToUpload[0]
+    }
   }
 }
 
@@ -24,7 +26,13 @@ export const actions = {
 // ------------------------------------
 const ACTION_HANDLERS = {
   [HANDLE_IMAGE_DROP]: (state, action) => {
-    console.log(action.payload);
+    if (action.payload.file) {
+      return Object.assign({}, state, {
+        data: {
+          file: action.payload.file
+        }
+      })
+    }
     return state;
   } 
 }
@@ -32,7 +40,7 @@ const ACTION_HANDLERS = {
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = { data: {} } 
+const initialState = { data: { file: null } } 
 export default function imageSelectReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 

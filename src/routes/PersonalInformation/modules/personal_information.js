@@ -1,11 +1,9 @@
 import { push } from 'react-router-redux'
-import { PATH as IMAGE_SELECT_PATH } from '../../ImageSelect'
-
-// ------------------------------------
-// Constants
-// ------------------------------------
-export const FORM_NAME = 'PERSONAL_INFO_FORM'
-export const PERSONAL_INFORMATION_NEXT = 'PERSONAL_INFORMATION_NEXT'
+import {
+  PERSONAL_INFORMATION_FORM_NAME,
+  ACTION_TYPES,
+  NEXT_PATH
+} from '../config/personal_information_config'
 
 // ------------------------------------
 // Persisted Data
@@ -27,12 +25,12 @@ let persistedState = {
 export function next() {
   return (dispatch, getState) => {
     dispatch({
-      type: PERSONAL_INFORMATION_NEXT,
+      type: ACTION_TYPES.PERSIST_PERSONAL_INFORMATION_DATA,
       payload: {
-        data: getState().form[FORM_NAME].values
+        data: getState().form[PERSONAL_INFORMATION_FORM_NAME].values
       }
     })
-    dispatch(push(IMAGE_SELECT_PATH))
+    dispatch(push(NEXT_PATH))
   }
 }
 
@@ -44,7 +42,7 @@ export const actions = {
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [PERSONAL_INFORMATION_NEXT]: (state, action) => {
+  [ACTION_TYPES.PERSIST_PERSONAL_INFORMATION_DATA]: (state, action) => {
     return Object.assign({}, state, {
       data: action.payload.data
     })

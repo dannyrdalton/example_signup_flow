@@ -10,7 +10,6 @@ export const DentalGoals = (props) => (
     <h2>Dental Goals</h2>
     <form>
       <div>
-        <label>Sex</label>
         <div>
           <label>
             <Field name="goal" component='input' type="radio" value="fixMinorCrowding"/>

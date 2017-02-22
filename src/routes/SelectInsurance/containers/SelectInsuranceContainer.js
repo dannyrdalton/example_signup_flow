@@ -1,4 +1,7 @@
 import { connect } from 'react-redux'
+import { reduxForm } from 'redux-form'
+import SELECT_INSURANCE_CONFIG from '../config/select_insurance_config'
+import { next, back } from '../modules/select_insurance'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -12,12 +15,16 @@ import SelectInsurance from '../components/SelectInsurance'
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps = {
-  
+  back,
+  next
 }
 
 const mapStateToProps = (state) => ({
-  
+  selectInsurance: state.selectInsurance,
+  initialValues: state.selectInsurance.data
 })
+
+const reduxFormConfig = SELECT_INSURANCE_CONFIG.reduxFormConfig
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
 
@@ -33,4 +40,4 @@ const mapStateToProps = (state) => ({
     Selectors are composable. They can be used as input to other selectors.
     https://github.com/reactjs/reselect    */
 
-export default connect(mapStateToProps, mapDispatchToProps)(SelectInsurance)
+export default connect(mapStateToProps, mapDispatchToProps)(reduxForm(reduxFormConfig)(SelectInsurance))

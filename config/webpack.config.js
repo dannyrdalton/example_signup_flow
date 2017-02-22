@@ -180,6 +180,8 @@ webpackConfig.postcss = [
 // File loaders
 /* eslint-disable */
 webpackConfig.module.loaders.push(
+  { test: /\.less$/, loader: "style-loader!css-loader!less-loader" },
+  { test: /\.gif$/, loader: "url-loader?mimetype=image/png" },
   { test: /\.woff(\?.*)?$/,  loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff' },
   { test: /\.woff2(\?.*)?$/, loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff2' },
   { test: /\.otf(\?.*)?$/,   loader: 'file?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=font/opentype' },
