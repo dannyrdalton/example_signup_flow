@@ -1,13 +1,12 @@
-// ------------------------------------
-// Constants
-// ------------------------------------
+import { push } from 'react-router-redux'
 
 // ------------------------------------
 // Actions
 // ------------------------------------
-
-export const actions = {
-  
+export function back() {
+  return (dispatch, getState) => {
+    dispatch(push('/select-insurance'))
+  }
 }
 
 // ------------------------------------

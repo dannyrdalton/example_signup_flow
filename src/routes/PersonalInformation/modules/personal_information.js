@@ -10,12 +10,12 @@ import {
 // ------------------------------------
 let persistedState = {
   data: {
-    email: '',
+    email: 'd@d.com',
     password: '',
-    firstName: '',
-    lastName: '',
-    dob: '',
-    phone: ''
+    firstName: 'd',
+    lastName: 'df',
+    dob: '2000-11-11',
+    phone: '5555555555'
   }
 }
 

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
-import SELECT_INSURANCE_CONFIG from '../config/select_insurance_config'
 import { next, back } from '../modules/select_insurance'
+import { REDUX_FORM_CONFIG } from '../config/select_insurance_config'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -24,7 +24,7 @@ const mapStateToProps = (state) => ({
   initialValues: state.selectInsurance.data
 })
 
-const reduxFormConfig = SELECT_INSURANCE_CONFIG.reduxFormConfig
+const reduxFormConfig = REDUX_FORM_CONFIG
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
 
