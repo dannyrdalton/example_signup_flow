@@ -1,4 +1,5 @@
 
+import REDUX_FORM_FIELD_RENDERERS from 'helpers/redux-form/field_renderers'
 import REDUX_FORM_FIELD_VALIDATORS from 'helpers/redux-form/field_validators'
 import REDUX_FORM_FIELD_NORMALIZERS from 'helpers/redux-form/field_normalizers'
 
@@ -15,43 +16,43 @@ export const REDUX_FORM_CONFIG = {
 
 export const FORM_FIELDS = [
   {
-    id: 'EMAIL',
+    key: 'EMAIL',
     name: 'email',
     label: 'Email',
     type: 'email',
-    component: '',
+    component: REDUX_FORM_FIELD_RENDERERS.field,
     validate: [REDUX_FORM_FIELD_VALIDATORS.required, REDUX_FORM_FIELD_VALIDATORS.email]
   },
   {
-    id: 'FIRST_NAME',
+    key: 'FIRST_NAME',
     name: 'firstName',
     label: 'First Name',
     type: 'text',
-    component: '',
+    component: REDUX_FORM_FIELD_RENDERERS.field,
     validate: [REDUX_FORM_FIELD_VALIDATORS.required, REDUX_FORM_FIELD_VALIDATORS.alphaNumeric]
   },
   {
-    id: 'LAST_NAME',
+    key: 'LAST_NAME',
     name: 'lastName',
     label: 'Last Name',
     type: 'text',
-    component: '',
+    component: REDUX_FORM_FIELD_RENDERERS.field,
     validate: [REDUX_FORM_FIELD_VALIDATORS.required, REDUX_FORM_FIELD_VALIDATORS.alphaNumeric]
   },
   {
-    id: 'DOB',
+    key: 'DOB',
     name: 'dob',
     label: 'Date of Birth',
     type: 'date',
-    component: '',
+    component: REDUX_FORM_FIELD_RENDERERS.field,
     validate: [REDUX_FORM_FIELD_VALIDATORS.required]
   },
   {
-    id: 'PHONE',
+    key: 'PHONE',
     name: 'phone',
     label: 'Phone #',
     type: 'text',
-    component: '',
+    component: REDUX_FORM_FIELD_RENDERERS.field,
     validate: [REDUX_FORM_FIELD_VALIDATORS.required],
     normalize: REDUX_FORM_FIELD_NORMALIZERS.phone
   }

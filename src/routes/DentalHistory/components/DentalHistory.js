@@ -1,6 +1,8 @@
 import React from 'react'
 import { Field } from 'redux-form'
+import DropdownList from 'react-widgets/lib/DropdownList'
 import { Link } from 'react-router'
+import { FORM_FIELDS } from '../config/dental_history_config'
 
 export const YesOption = (props) => (
   <option value='yes'>Yes</option>
@@ -14,50 +16,19 @@ export const UnsureOption = (props) => (
   <option value='unsure'>Unsure</option>
 )
 
+const renderDropdownList = ({ input, meta, ...rest }) => (
+  <DropdownList {...input} {...rest}/>
+)
+
 export const DentalHistory = (props) => (
   <div>
     <h2>Dental History</h2>
     <form>
-      <div className='form-group'>
-        <label>Have you had your wisdom teeth removed?</label>
-        <div>
-          <Field name='wisdomTeethRemoved' component='select' className='form-control'>
-            <YesOption></YesOption>
-            <NoOption></NoOption>
-            <UnsureOption></UnsureOption>
-          </Field>
-        </div>
-      </div>
-      <div className='form-group'>
-        <label>Do you have any crowns or fillings?</label>
-        <div>
-          <Field name='crownsOrFillings' component='select' className='form-control'>
-            <YesOption></YesOption>
-            <NoOption></NoOption>
-            <UnsureOption></UnsureOption>
-          </Field>
-        </div>
-      </div>
-      <div className='form-group'>
-        <label>Do you have any loose teeth?</label>
-        <div>
-          <Field name='looseTeeth' component='select' className='form-control'>
-            <YesOption></YesOption>
-            <NoOption></NoOption>
-            <UnsureOption></UnsureOption>
-          </Field>
-        </div>
-      </div>
-      <div className='form-group'>
-        <label>Do you have any decaying teeth?</label>
-        <div>
-          <Field name='decayingTeeth' component='select' className='form-control'>
-            <YesOption></YesOption>
-            <NoOption></NoOption>
-            <UnsureOption></UnsureOption>
-          </Field>
-        </div>
-      </div>
+      {FORM_FIELDS.map(field =>
+        <Field
+          {...field}
+        />
+      )}
     </form>
     <div>
       <div className="btn btn-default" onClick={props.back}>Back</div>

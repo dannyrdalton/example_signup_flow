@@ -1,21 +1,22 @@
 import { push } from 'react-router-redux'
 import { PATH as IMAGE_SELECT_PATH } from '../../ImageSelect'
 import { PATH as DENTAL_GOALS_PATH } from '../../DentalGoals'
-// ------------------------------------
-// Constants
-// ------------------------------------
-export const FORM_NAME = 'DENTAL_HISTORY_FORM'
-export const DENTAL_HISTORY_PERSIST = 'DENTAL_HISTORY_PERSIST'
+import {
+  DENTAL_HISTORY_FORM_NAME,
+  ACTION_TYPES,
+  BACK_PATH,
+  NEXT_PATH
+} from '../config/dental_history_config'
 
 // ------------------------------------
 // Persisted Data
 // ------------------------------------
 let persistedState = {
   data: {
-    wisdomTeethRemoved: 'unsure',
-    crownsOrFillings: 'unsure',
-    looseTeeth: 'unsure',
-    decayingTeeth: 'unsure' 
+    wisdomTeethRemoved: 'Unsure',
+    crownsOrFillings: 'Unsure',
+    looseTeeth: 'Unsure',
+    decayingTeeth: 'Unsure' 
   }
 }
 
@@ -25,37 +26,32 @@ let persistedState = {
 export function back() {
   return (dispatch, getState) => {
     dispatch({
-      type: DENTAL_HISTORY_PERSIST,
+      type: ACTION_TYPES.PERSIST_DENTAL_HISTORY_DATA,
       payload: {
-        data: getState().form[FORM_NAME].values
+        data: getState().form[DENTAL_HISTORY_FORM_NAME].values
       }
     })
-    dispatch(push(IMAGE_SELECT_PATH))
+    dispatch(push(BACK_PATH))
   }
 }
 
 export function next() {
   return (dispatch, getState) => {
     dispatch({
-      type: DENTAL_HISTORY_PERSIST,
+      type: ACTION_TYPES.PERSIST_DENTAL_HISTORY_DATA,
       payload: {
-        data: getState().form[FORM_NAME].values
+        data: getState().form[DENTAL_HISTORY_FORM_NAME].values
       }
     })
-    dispatch(push(DENTAL_GOALS_PATH))
+    dispatch(push(NEXT_PATH))
   }
-}
-
-export const actions = {
-  back,
-  next 
 }
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [DENTAL_HISTORY_PERSIST]: (state, action) => {
+  [ACTION_TYPES.PERSIST_DENTAL_HISTORY_DATA]: (state, action) => {
     return Object.assign({}, state, {
       data: action.payload.data
     })
