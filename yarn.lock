@@ -235,6 +235,17 @@ autoprefixer@^6.3.1:
     postcss "^5.2.5"
     postcss-value-parser "^3.2.3"
 
+autoresponsive-common@~1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/autoresponsive-common/-/autoresponsive-common-1.0.1.tgz#6213e798a6879e6b6340d6127a6133a369c0cb9d"
+
+autoresponsive-react@^1.1.11:
+  version "1.1.11"
+  resolved "https://registry.yarnpkg.com/autoresponsive-react/-/autoresponsive-react-1.1.11.tgz#a2df4a1f66f08f4ae9e33a2a808f595aa533f1d2"
+  dependencies:
+    autoresponsive-common "~1.0.1"
+    exenv "^1.2.0"
+
 aws-sign2@~0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.6.0.tgz#14342dd38dbcc94d0e5b87d763cd63612c0e794f"
@@ -2215,6 +2226,10 @@ execSync@1.0.2:
   resolved "https://registry.yarnpkg.com/execSync/-/execSync-1.0.2.tgz#1f42eda582225180053224ecdd3fd1960fdb3139"
   dependencies:
     temp "~0.5.1"
+
+exenv@^1.2.0:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/exenv/-/exenv-1.2.1.tgz#75de1c8dee02e952b102aa17f8875973e0df14f9"
 
 exit-hook@^1.0.0:
   version "1.1.1"
