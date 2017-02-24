@@ -1,0 +1,9 @@
+.select-doctor {
+  .doctor-img {
+    border: 2px solid black;
+
+    &.selected {
+      border: 2px solid blue;
+    }
+  }
+}

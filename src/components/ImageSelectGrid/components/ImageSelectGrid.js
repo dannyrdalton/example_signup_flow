@@ -16,10 +16,21 @@ const arrayList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 let autoresponsiveInner
 
-const childStyle = {
-  width: '300px',
-  height: '300px',
-  background: 'red'
+const childStyle = {}
+
+function setSelectedItem(items, selectedItem) {
+  items.forEach(function (item) {
+    if (item.key == selectedItem.key) {
+      item.selected = true;
+    } else {
+      item.selected = false;
+    }
+  });
+}
+
+function onItemClick(item, props) {
+  setSelectedItem(props.items, item)
+  props.onItemClick(props.items, item);
 }
 
 export const ImageSelectGrid = (props) => (
@@ -28,7 +39,12 @@ export const ImageSelectGrid = (props) => (
     <AutoResponsive {...autoresponsiveProps}>
       {props.items.map((item) => {
         return (
-          <div className="item" key={item.key} style={childStyle} onClick={() => props.onItemClick(item)}>
+          <div
+            className="item"
+            key={item.key}
+            style={childStyle}
+            onClick={() => onItemClick(item, props)}
+          >
             {props.itemComponent(item)}
           </div>
         )

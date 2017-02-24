@@ -1,13 +1,18 @@
 import { ACTION_TYPES } from '../config/select_doctor_config'
 
+function unselectAllItems(i) {
+
+}
+
 // ------------------------------------
 // Actions
 // ------------------------------------
 
-export function onImageSelectItemClick(item) {
+export function onImageSelectItemClick(items, item) {
   return {
     type: ACTION_TYPES.SELECT_DOCTOR_IMAGE_SELECT_GRID_ON_ITEM_CLICK,
     payload: {
+      allItems: items,
       item: item
     }
   }

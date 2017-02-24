@@ -2,15 +2,16 @@ import React from 'react'
 import { ImageSelectGrid } from 'components/ImageSelectGrid/components/ImageSelectGrid'
 import { Link } from 'react-router'
 import { IMAGE_SELECT_GRID_CONFIG } from '../config/select_doctor_config'
+import './SelectDoctor.scss'
 
 export const renderImageSelectGridItemComponent = (item) => (
-  <div>
+  <div className={"doctor-img " + (item.selected ? 'selected' : '')}>
     <img src={item.imgSrc} />
   </div>
 )
 
 export const SelectDoctor = (props) => (
-  <div>
+  <div className="select-doctor">
     <h2>Select Doctor</h2>
     <div>
       <ImageSelectGrid
@@ -29,11 +30,5 @@ export const SelectDoctor = (props) => (
     </div>
   </div>
 )
-
-// Counter.propTypes = {
-//   counter     : React.PropTypes.number.isRequired,
-//   doubleAsync : React.PropTypes.func.isRequired,
-//   increment   : React.PropTypes.func.isRequired
-// }
 
 export default SelectDoctor
