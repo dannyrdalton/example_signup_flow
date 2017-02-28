@@ -1,4 +1,5 @@
-import { ACTION_TYPES } from '../config/select_doctor_config'
+import { push } from 'react-router-redux'
+import { BACK_PATH, NEXT_PATH, ACTION_TYPES } from '../config/select_doctor_config'
 
 function unselectAllItems(i) {
 
@@ -15,6 +16,18 @@ export function onImageSelectItemClick(items, item) {
       allItems: items,
       item: item
     }
+  }
+}
+
+export function back() {
+  return (dispatch, getState) => {
+    dispatch(push(BACK_PATH)) 
+  }
+}
+
+export function next() {
+  return (dispatch, getState) => {
+    dispatch(push(NEXT_PATH)) 
   }
 }
 

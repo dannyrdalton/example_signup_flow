@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { handleImageDrop } from '../modules/image_select'
+import { handleImageDrop, back, next } from '../modules/image_select'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -13,7 +13,9 @@ import ImageSelect from '../components/ImageSelect'
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps = {
-  handleImageDrop 
+  handleImageDrop,
+  back,
+  next
 }
 
 const mapStateToProps = (state) => ({

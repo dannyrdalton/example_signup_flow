@@ -1,8 +1,9 @@
+import ROUTES from 'constants/routes'
 import REDUX_FORM_FIELD_RENDERERS from 'helpers/redux-form/field_renderers'
 
 export const DENTAL_HISTORY_FORM_NAME = 'personalInfoForm'
-export const BACK_PATH = '/select-an-image'
-export const NEXT_PATH = '/dental-goals'
+export const BACK_PATH = '/' + ROUTES.IMAGE_SELECT.path
+export const NEXT_PATH = '/' + ROUTES.DENTAL_GOALS.path
 export const DENTAL_HISTORY_DROPDOWN_LIST_DATA = ['Yes', 'No', 'Unsure']
 
 export const ACTION_TYPES = {

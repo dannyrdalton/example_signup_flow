@@ -21,12 +21,8 @@ export const SelectDoctor = (props) => (
       </ImageSelectGrid>
     </div>
     <div>
-      <Link to='/dental-goals' className="btn btn-default">
-        Back
-      </Link>
-      <Link to='/select-insurance' className="btn btn-default">
-        Next
-      </Link>
+      <div className="btn btn-default" onClick={props.back}>Back</div>
+      <div className="btn btn-default" onClick={props.next}>Next</div>
     </div>
   </div>
 )

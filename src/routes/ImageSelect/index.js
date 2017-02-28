@@ -1,9 +1,8 @@
 import { injectReducer } from '../../store/reducers'
-
-export const PATH = 'select-an-image'
+import ROUTES from 'constants/routes'
 
 export default (store) => ({
-  path : PATH,
+  path : ROUTES.IMAGE_SELECT.path,
   /*  Async getComponent is only invoked when route matches   */
   getComponent (nextState, cb) {
     /*  Webpack - use 'require.ensure' to create a split point

@@ -1,9 +1,8 @@
 import { injectReducer } from '../../store/reducers'
-
-export const PATH = 'dental-history'
+import ROUTES from 'constants/routes'
 
 export default (store) => ({
-  path : PATH,
+  path : ROUTES.DENTAL_HISTORY.path,
   /*  Async getComponent is only invoked when route matches   */
   getComponent (nextState, cb) {
     /*  Webpack - use 'require.ensure' to create a split point

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { back } from '../modules/review_and_submit'
+import { back, submitAllUserInfo } from '../modules/review_and_submit'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -13,7 +13,8 @@ import ReviewAndSubmit from '../components/ReviewAndSubmit'
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps = {
-  back 
+  back,
+  submitAllUserInfo
 }
 
 const mapStateToProps = (state) => ({
@@ -21,8 +22,10 @@ const mapStateToProps = (state) => ({
     data: {
       pinfo: state.pinfo,
       imageSelect: state.imageSelect,
+      imageSelect: state.imageSelect,
       dentalHistory: state.dentalHistory,
       dentalGoals: state.dentalGoals,
+      selectDoctor: state.selectDoctor,
       selectInsurance: state.selectInsurance
     }
   } 

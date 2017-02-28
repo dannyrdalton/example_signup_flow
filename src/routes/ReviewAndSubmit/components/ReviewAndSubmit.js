@@ -18,6 +18,10 @@ export const ReviewAndSubmit = (props) => (
           </div>
         )}
       </div>
+      <h3>Profile Picture</h3>
+      <div>
+        <img src={props.reviewAndSubmit.data.imageSelect.data.file.preview} alt=""/>
+      </div>
       <h3>Dental History</h3>
       <div>
         {DENTAL_HISTORY_FORM_FIELDS.map(field =>
@@ -32,6 +36,7 @@ export const ReviewAndSubmit = (props) => (
         {DENTAL_GOALS_FORM_FIELDS.map(field =>
           <div className="row" key={field.key}>
             <span>{props.reviewAndSubmit.data.dentalGoals.data[field.name].value}</span>
+            <div><img src={props.reviewAndSubmit.data.dentalGoals.data[field.name].imgSrc} alt=""/></div>
           </div>
         )}
       </div>
@@ -44,8 +49,10 @@ export const ReviewAndSubmit = (props) => (
         )}
       </div>
     </div>
+    {'------------------------------------------'}
     <div>
       <button className="btn btn-default" onClick={props.back}>Back</button>
+      <button className="btn btn-primary" onClick={props.submitAllUserInfo}>submit</button>
     </div>
   </div>
 )

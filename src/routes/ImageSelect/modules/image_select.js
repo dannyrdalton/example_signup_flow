@@ -1,31 +1,37 @@
-// ------------------------------------
-// Constants
-// ------------------------------------
-export const FORM_NAME = 'IMAGE_SELECT_FORM'
-export const HANDLE_IMAGE_DROP = 'HANDLE_IMAGE_DROP'
-
+import { push } from 'react-router-redux'
+import { BACK_PATH, NEXT_PATH, ACTION_TYPES } from '../config/image_select_config'
 // ------------------------------------
 // Actions
 // ------------------------------------
 
 export function handleImageDrop(filesToUpload, e) {
   return {
-    type: HANDLE_IMAGE_DROP,
+    type: ACTION_TYPES.IMAGE_SELECT_HANDLE_IMAGE_DROP,
     payload: {
       file: filesToUpload[0]
     }
   }
 }
 
-export const actions = {
-  
+export function back() {
+  return (dispatch, getState) => {
+    dispatch(push(BACK_PATH))
+  }
 }
+
+export function next() {
+  return (dispatch, getState) => {
+    dispatch(push(NEXT_PATH))
+  }
+}
+
+
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [HANDLE_IMAGE_DROP]: (state, action) => {
+  [ACTION_TYPES.IMAGE_SELECT_HANDLE_IMAGE_DROP]: (state, action) => {
     if (action.payload.file) {
       return Object.assign({}, state, {
         data: {

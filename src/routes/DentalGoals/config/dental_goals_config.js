@@ -1,3 +1,4 @@
+import ROUTES from 'constants/routes'
 import REDUX_FORM_FIELD_RENDERERS from 'helpers/redux-form/field_renderers'
 import REACT_WIDGETS_DROPDOWN_LIST_COMPONENT_RENDERERS from 'helpers/react-widgets/DropdownList/component_renderers'
 
@@ -6,8 +7,8 @@ import ModerateCrowdingImage from '../assets/moderate_crowding.jpg'
 import MajorCrowdingImage from '../assets/major_crowding.png'
 
 export const DENTAL_GOALS_FORM_NAME = 'dentalGoalsForm'
-export const BACK_PATH = '/dental-history'
-export const NEXT_PATH = '/select-doctor'
+export const BACK_PATH = '/' + ROUTES.DENTAL_HISTORY.path
+export const NEXT_PATH = '/' + ROUTES.SELECT_DOCTOR.path
 
 export const DENTAL_GOALS_DATA = [
   {

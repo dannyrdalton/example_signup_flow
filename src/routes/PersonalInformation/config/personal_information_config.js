@@ -1,9 +1,10 @@
+import ROUTES from 'constants/routes'
 import REDUX_FORM_FIELD_RENDERERS from 'helpers/redux-form/field_renderers'
 import REDUX_FORM_FIELD_VALIDATORS from 'helpers/redux-form/field_validators'
 import REDUX_FORM_FIELD_NORMALIZERS from 'helpers/redux-form/field_normalizers'
 
 export const PERSONAL_INFORMATION_FORM_NAME = 'personalInfoForm'
-export const NEXT_PATH = '/select-an-image'
+export const NEXT_PATH = '/' + ROUTES.IMAGE_SELECT.path
 
 export const ACTION_TYPES = {
  PERSIST_PERSONAL_INFORMATION_DATA: 'PERSIST_PERSONAL_INFORMATION_DATA' 

@@ -1,8 +1,12 @@
+import ROUTES from 'constants/routes'
 import Doctor1Image from '../assets/doctor1.jpg'
 import Doctor2Image from '../assets/doctor2.jpg'
 import Doctor3Image from '../assets/doctor3.jpg'
 import Doctor4Image from '../assets/doctor4.jpg'
 import Doctor5Image from '../assets/doctor5.jpg'
+
+export const BACK_PATH = '/' + ROUTES.DENTAL_GOALS.path
+export const NEXT_PATH = '/' + ROUTES.SELECT_INSURANCE.path
 
 export const ACTION_TYPES = {
   SELECT_DOCTOR_IMAGE_SELECT_GRID_ON_ITEM_CLICK: 'SELECT_DOCTOR_IMAGE_SELECT_GRID_ON_ITEM_CLICK', 

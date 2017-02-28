@@ -1,9 +1,10 @@
 import { injectReducer } from '../../store/reducers'
+import ROUTES from 'constants/routes'
 
 export const PATH = 'review-and-submit'
 
 export default (store) => ({
-  path : PATH,
+  path : ROUTES.REVIEW_AND_SUBMIT.path,
   /*  Async getComponent is only invoked when route matches   */
   getComponent (nextState, cb) {
     /*  Webpack - use 'require.ensure' to create a split point
