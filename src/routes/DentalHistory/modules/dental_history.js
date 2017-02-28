@@ -9,20 +9,9 @@ import {
 } from '../config/dental_history_config'
 
 // ------------------------------------
-// Persisted Data
-// ------------------------------------
-let persistedState = {
-  data: {
-    wisdomTeethRemoved: 'Unsure',
-    crownsOrFillings: 'Unsure',
-    looseTeeth: 'Unsure',
-    decayingTeeth: 'Unsure' 
-  }
-}
-
-// ------------------------------------
 // Actions
 // ------------------------------------
+
 export function back() {
   return (dispatch, getState) => {
     dispatch({
@@ -50,6 +39,7 @@ export function next() {
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
+
 const ACTION_HANDLERS = {
   [ACTION_TYPES.PERSIST_DENTAL_HISTORY_DATA]: (state, action) => {
     return Object.assign({}, state, {
@@ -61,7 +51,16 @@ const ACTION_HANDLERS = {
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = persistedState 
+
+const initialState = {
+  data: {
+    wisdomTeethRemoved: 'Unsure',
+    crownsOrFillings: 'Unsure',
+    looseTeeth: 'Unsure',
+    decayingTeeth: 'Unsure' 
+  }
+}
+
 export default function dentalHistoryReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 

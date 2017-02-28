@@ -14,7 +14,7 @@ export default (store) => ({
       const SelectAnImage = require('./containers/SelectInsuranceContainer').default
       const reducer = require('./modules/select_insurance').default
 
-      /*  Add the reducer to the store on key 'pinfo'  */
+      /*  Add the reducer to the store on key 'selectInsurance'  */
       injectReducer(store, { key: 'selectInsurance', reducer })
 
       /*  Return getComponent   */

@@ -15,7 +15,7 @@ export default (store) => ({
       const SelectAnImage = require('./containers/ReviewAndSubmitContainer').default
       const reducer = require('./modules/review_and_submit').default
 
-      /*  Add the reducer to the store on key 'pinfo'  */
+      /*  Add the reducer to the store on key 'reviewAndSubmit'  */
       injectReducer(store, { key: 'reveiwAndSubmit', reducer })
 
       /*  Return getComponent   */

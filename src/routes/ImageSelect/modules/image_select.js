@@ -1,5 +1,6 @@
 import { push } from 'react-router-redux'
 import { BACK_PATH, NEXT_PATH, ACTION_TYPES } from '../config/image_select_config'
+
 // ------------------------------------
 // Actions
 // ------------------------------------
@@ -25,11 +26,10 @@ export function next() {
   }
 }
 
-
-
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
+
 const ACTION_HANDLERS = {
   [ACTION_TYPES.IMAGE_SELECT_HANDLE_IMAGE_DROP]: (state, action) => {
     if (action.payload.file) {
@@ -46,7 +46,12 @@ const ACTION_HANDLERS = {
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = { data: { file: null } } 
+
+const initialState = {
+  data: {
+    file: null
+  }
+}
 export default function imageSelectReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 

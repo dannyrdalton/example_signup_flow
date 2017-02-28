@@ -4,6 +4,7 @@ import { BACK_LINK, ACTION_TYPES } from '../config/review_and_submit_config'
 // ------------------------------------
 // Actions
 // ------------------------------------
+
 export function back() {
   return (dispatch, getState) => {
     dispatch(push(BACK_LINK))
@@ -13,6 +14,7 @@ export function back() {
 export function submitAllUserInfo() {
   return (dispatch, getState) => {
     //promise for API request would go here
+    //would create formatter to format front-end data to the signature the API expects
     dispatch({
       type: ACTION_TYPES.SUBMIT_ALL_USER_INFO
     })
@@ -22,9 +24,10 @@ export function submitAllUserInfo() {
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
+
 const ACTION_HANDLERS = {
   [ACTION_TYPES.SUBMIT_ALL_USER_INFO]: (state, action) => {
-    console.log('info submitted!');
+    state.dataSubmitted = true;
     return state;
   } 
 }
@@ -32,6 +35,7 @@ const ACTION_HANDLERS = {
 // ------------------------------------
 // Reducer
 // ------------------------------------
+
 const initialState = {}
 export default function reviewAndSubmitReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]

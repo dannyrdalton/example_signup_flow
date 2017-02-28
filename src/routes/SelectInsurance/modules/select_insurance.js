@@ -38,6 +38,7 @@ export function next() {
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
+
 const ACTION_HANDLERS = {
   [ACTION_TYPES.PERSIST_SELECT_INSURANCE_DATA]: (state, action) => {
     return Object.assign({}, state, {
@@ -49,6 +50,7 @@ const ACTION_HANDLERS = {
 // ------------------------------------
 // Reducer
 // ------------------------------------
+
 const initialState = { data: { insurance: '' } } 
 
 export default function selectInsuranceReducer (state = initialState, action) {

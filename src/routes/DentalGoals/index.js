@@ -1,8 +1,6 @@
 import { injectReducer } from '../../store/reducers'
 import ROUTES from 'constants/routes'
 
-export const PATH = 'dental-goals'
-
 export default (store) => ({
   path : ROUTES.DENTAL_GOALS.path,
   /*  Async getComponent is only invoked when route matches   */
@@ -15,7 +13,7 @@ export default (store) => ({
       const SelectAnImage = require('./containers/DentalGoalsContainer').default
       const reducer = require('./modules/dental_goals').default
 
-      /*  Add the reducer to the store on key 'pinfo'  */
+      /*  Add the reducer to the store on key 'dentalGoals'  */
       injectReducer(store, { key: 'dentalGoals', reducer })
 
       /*  Return getComponent   */

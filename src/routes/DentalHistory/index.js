@@ -13,7 +13,7 @@ export default (store) => ({
       const SelectAnImage = require('./containers/DentalHistoryContainer').default
       const reducer = require('./modules/dental_history').default
 
-      /*  Add the reducer to the store on key 'pinfo'  */
+      /*  Add the reducer to the store on key 'dentalHistory'  */
       injectReducer(store, { key: 'dentalHistory', reducer })
 
       /*  Return getComponent   */

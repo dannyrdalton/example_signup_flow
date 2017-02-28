@@ -9,15 +9,6 @@ import {
 } from '../config/dental_goals_config'
 
 // ------------------------------------
-// Persisted Data
-// ------------------------------------
-let persistedState = {
-  data: {
-    goal: '' 
-  }
-}
-
-// ------------------------------------
 // Actions
 // ------------------------------------
 
@@ -45,14 +36,10 @@ export function next() {
   }
 }
 
-export const actions = {
-  back,
-  next
-}
-
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
+
 const ACTION_HANDLERS = {
   [ACTION_TYPES.DENTAL_GOALS_PERSIST]: (state, action) => {
     return Object.assign({}, state, {
@@ -64,7 +51,11 @@ const ACTION_HANDLERS = {
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = persistedState 
+
+const initialState = data: {
+  goal: '' 
+}
+
 export default function dentalGoalsReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 
