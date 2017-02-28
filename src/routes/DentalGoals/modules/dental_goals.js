@@ -52,8 +52,10 @@ const ACTION_HANDLERS = {
 // Reducer
 // ------------------------------------
 
-const initialState = data: {
-  goal: '' 
+const initialState = {
+  data: {
+    goal: '' 
+  }
 }
 
 export default function dentalGoalsReducer (state = initialState, action) {
