@@ -8,4 +8,6 @@ cd example_signup_flow
 
 yarn install
 yarn start
+
+navigate to http://localhost:3000/
 ```
